@@ -1,7 +1,7 @@
 name: aberchat
-description: A new Flutter package project.
+description: Realtime chat package with socket.io. You can easily integrate this package to your flutter app. This package is using socket.io for realtime communication. You can use this package for your chat app or any other realtime communication app.
 version: 0.0.1
-homepage:
+homepage: https://abersoft.se
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
