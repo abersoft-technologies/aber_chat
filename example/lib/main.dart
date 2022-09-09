@@ -42,6 +42,9 @@ class _MyHomePageState extends State<MyHomePage> {
           apiKey: 'your-api-key',
           roomId: 'your-room-id',
         ),
+        onReceivedEvent: (event) {
+          print(event);
+        },
       ),
     );
   }

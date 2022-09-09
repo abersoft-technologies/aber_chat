@@ -1,39 +1,35 @@
-<!--
-This README describes the package. If you publish this package to pub.dev,
-this README's contents appear on the landing page for your package.
+## ABER CHAT
 
-For information about how to write a good package README, see the guide for
-[writing package pages](https://dart.dev/guides/libraries/writing-package-pages).
+AberChat is a chat application that allows users to communicate with each other in real time. This
+application is use socket.io to communicate between the server and the client. The server is written
+in Node.js and the client is written in React.js. The server is deployed on Heroku and the client is
+deployed on Netlify.
 
-For general information about developing packages, see the Dart guide for
-[creating packages](https://dart.dev/guides/libraries/create-library-packages)
-and the Flutter guide for
-[developing packages and plugins](https://flutter.dev/developing-packages).
--->
 
-TODO: Put a short description of the package here that helps potential users
-know whether this package might be useful for them.
+## Installation
 
-## Features
-
-TODO: List what your package can do. Maybe include images, gifs, or videos.
-
-## Getting started
-
-TODO: List prerequisites and provide or point to information on how to
-start using the package.
+flutter pub add aber_chat
 
 ## Usage
 
-TODO: Include short and useful examples for package users. Add longer examples
-to `/example` folder.
-
 ```dart
-const like = 'sample';
+RoomPage(
+        aberchatConfig: AberchatConfig(
+          appId: 'your-app-id',
+          apiKey: 'your-api-key',
+          roomId: 'your-room-id',
+        ),
+        onReceivedEvent: (event) {
+          print(event);
+        },
+      )
 ```
 
-## Additional information
+## Features and bugs
+we will still working to watch that
 
-TODO: Tell users more about the package: where to find more information, how to
-contribute to the package, how to file issues, what response they can expect
-from the package authors, and more.
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
+
+## Author
+[Abersoft Technologies](https://abersoft.se)
