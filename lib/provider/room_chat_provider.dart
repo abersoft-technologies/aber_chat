@@ -49,6 +49,9 @@ class RoomChatProvider with ChangeNotifier {
     if (aberchatConfig.triggerBoth) {
       aberchatConfig.onChatJoined?.call(data);
     }
+    if (aberchatConfig.triggerBoth) {
+      aberchatConfig.onChatJoinedData?.call(listChat);
+    }
   }
 
   void _onChatReceive(dynamic data) {
@@ -61,6 +64,9 @@ class RoomChatProvider with ChangeNotifier {
     notifyListeners();
     if (aberchatConfig.triggerBoth) {
       aberchatConfig.onChatReceive?.call(data);
+    }
+    if (aberchatConfig.triggerBoth) {
+      aberchatConfig.onChatReceiveData?.call(chat);
     }
   }
 
@@ -112,14 +118,27 @@ class RoomChatProvider with ChangeNotifier {
     }
   }
 
-  void sendChat() async {
+  void sendChat({
+    TextEditingController? controller,
+    String? text,
+    Chat? customChat,
+  }) async {
     final chat = Chat(
-      message: controller.text,
+      message: text ?? controller?.text ?? this.controller.text,
       sendAt: DateTime.now().millisecondsSinceEpoch.toString(),
       originalId: const Uuid().v4(),
     );
-    socket.emit("chat:send", chat.chatRequest());
-    controller.clear();
+    socket.emit("chat:send", customChat?.chatRequest() ?? chat.chatRequest());
+    controller?.clear();
+    this.controller.clear();
     notifyListeners();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    socket.disconnect();
+    socket.dispose();
+    socket.destroy();
   }
 }

@@ -1,4 +1,6 @@
-import 'package:aberchat/aberchat.dart';
+import 'package:aberchat_example/aberchat_example.dart';
+import 'package:aberchat_example/custom_chat_room.dart';
+import 'package:aberchat_example/next_chat_room.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -15,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'AberChat Example'),
+      home: const MyHomePage(title: 'AberChat'),
     );
   }
 }
@@ -36,15 +38,48 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         title: Text(widget.title),
       ),
-      body: RoomPage(
-        aberchatConfig: AberchatConfig(
-          appId: 'your-app-id',
-          apiKey: 'your-api-key',
-          roomId: 'your-room-id',
-        ),
-        onReceivedEvent: (event) {
-          print(event);
-        },
+      body: ListView(
+        children: [
+          ListTile(
+            title: const Text('Example 1'),
+            subtitle: const Text('Using AberChat Example'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const AberchatExample(title: 'AberChat Example');
+                }),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Example 2'),
+            subtitle: const Text('Custom Widget'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const CustomChatRoom(title: 'Custom Chat Room');
+                }),
+              );
+            },
+          ),
+          ListTile(
+            title: const Text('Example 3'),
+            subtitle: const Text('Next Custom Widget'),
+            trailing: const Icon(Icons.arrow_forward_ios),
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return const NextChatRoom(title: 'Next Custom Widget');
+                }),
+              );
+            },
+          ),
+        ],
       ),
     );
   }
