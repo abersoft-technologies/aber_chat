@@ -5,7 +5,6 @@ application is use socket.io to communicate between the server and the client. T
 in Node.js and the client is written in React.js. The server is deployed on Heroku and the client is
 deployed on Netlify.
 
-
 ## Installation
 
 flutter pub add aber_chat
@@ -14,15 +13,15 @@ flutter pub add aber_chat
 
 ```dart
 RoomPage(
-        aberchatConfig: AberchatConfig(
-          appId: 'your-app-id',
-          apiKey: 'your-api-key',
-          roomId: 'your-room-id',
-        ),
-        onReceivedEvent: (event) {
-          print(event);
-        },
-      )
+  aberchatConfig: AberchatConfig(
+    appId: '631ae2ed3a4f071fd104365a',
+    apiKey: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1dWlkIjoiZmFiMGNkYWItMDA3My00ZDY0LTg4OTItYjNlODg4YWMyYTJkIiwiaWF0IjoxNjYyNzA2NDEzLCJhdWQiOiJodHRwOi8vbG9jYWxob3N0In0.0lBM1iZkfcdC5yXL3y5qnFYpwKvtT20-s0W2WsBe02w',
+    roomId: 'demo-aberchat',
+  ),
+  onReceivedEvent: (event) {
+    print(event);
+  },
+)
 ```
 
 ## Features and bugs

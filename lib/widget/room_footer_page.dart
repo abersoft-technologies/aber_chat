@@ -26,15 +26,6 @@ class _RoomFooterPageState extends State<RoomFooterPage> {
               ),
             ),
           ),
-          // IconButton(
-          //   onPressed: () async {
-          //     await showModalBottomSheet(
-          //       context: context,
-          //       builder: (ctx) => GiphyPage(sendGif: sendGif),
-          //     );
-          //   },
-          //   icon: const Icon(Icons.emoji_emotions_outlined),
-          // ),
           IconButton(
             onPressed: provider.sendChat,
             icon: const Icon(Icons.send),
